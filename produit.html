@@ -1,0 +1,280 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ivoire Drive.ci</title>
+    <link rel="stylesheet" href="produit.css">
+</head>
+<body>
+    <div class="container">
+    <div class="image-section" id="imageContainer">
+      <span class="arrow left" onclick="changerImage(-1, event)">&#10094;</span>
+      <img id="produitImage" src="BMW X3 iDrive 2.0i 4WD.jpg" alt="Produit">
+      <span class="arrow right" onclick="changerImage(1, event)">&#10095;</span>
+    </div>
+  </div>
+
+  <div class="thumbnails">
+    <img src="BMW X3 iDrive 2.0i 4WD.jpg" onclick="afficherImage(0)" class="active">
+    <img src="BMW X3 iDrive 2.0i 4WD face.jpg" onclick="afficherImage(1)">
+    <img src="BMW X3 iDrive 2.0i 4WD portie gauche.jpg" onclick="afficherImage(2)">
+    <img src="BMW X3 iDrive 2.0i 4WD sierge.jpg" onclick="afficherImage(3)">
+    <img src="BMW X3 iDrive 2.0i 4WD volant.jpg" onclick="afficherImage(4)">
+    <img src="BMW X3 iDrive 2.0i 4WD le corfre.jpg" onclick="afficherImage(5)">
+    <img src="BMW X3 iDrive 2.0i 4WD le dos.jpg" onclick="afficherImage(6)">
+  </div>
+
+  <div class="container">
+  <div class="details-section">
+    <h1></h1> <!-- Le nom du produit va s'afficher ici -->
+
+    <div class="info"></div> <!-- Le paragraphe sera injecté ici -->
+
+    <div class="encadrement-prix"></div> <!-- Le prix sera injecté ici -->
+    <br>
+
+    <a href="https://wa.me/2250707293637" class="whatsapp-btn" target="_blank">
+      Contacter sur WhatsApp
+    </a>
+  </div>
+</div>
+
+  
+<script>
+  const produits = {
+    "BMW-X3": {
+      nom: "BMW X3 iDrive 2.0i 4WD",
+      prix: "3,836,000 CFA",
+      images: [
+        "BMW X3 iDrive 2.0i 4WD.jpg",
+        "BMW X3 iDrive 2.0i 4WD face.jpg",
+        "BMW X3 iDrive 2.0i 4WD portie gauche.jpg",
+        "BMW X3 iDrive 2.0i 4WD sierge.jpg",
+        "BMW X3 iDrive 2.0i 4WD volant.jpg",
+        "BMW X3 iDrive 2.0i 4WD le corfre.jpg",
+        "BMW X3 iDrive 2.0i 4WD le dos.jpg"
+      ],
+      description: `
+        <p><strong>Garantie :</strong> 1 an</p>
+        <p><strong>Service après-vente :</strong> Jusqu'à 90 jours</p>
+        <p><strong>Support :</strong> En ligne 24h/24</p>
+        <p><strong>Livraison :</strong> partout Abidjan, avec La Poste CI</p>
+        <p><strong>Qualité :</strong> Luxe</p>
+        <p><strong>Détails :</strong> Moteur essence 4, <br>Boîte Auto, 
+            <br>SIntérieur cuir noir luxueux & confortable <br>Sièges chauffents, <br>ventilés et électriques <br>Démarrage Sart & Stop <br>GROS écran tactile + Caméra 360° (4 caméras) <br>Volant multifonction avec palettes <br> Détecteur d'angle mort <br>Coffre éléctrique <br>Option 4x4 +Parking assisté <br>freinage automatique <br><strong>Véhicule zéro faute, livré</strong>.</p>
+      `
+    },
+
+    // 🔽 Ajoute ici tes autres produits
+
+    "chevrolet-camaro-zl1": {
+  nom: "chevrolet-camaro-zl1",
+  prix: "2,150,000 CFA",
+  images: [
+    "2024-chevrolet-camaro-zl1.avif",
+    "2018-Chevrolet-Camaro-ZL1-deventure.avif",
+    "2018-Chevrolet-Camaro-ZL1-le dos.avif",
+    "2018-Chevrolet-Camaro-ZL1-de loin devent.avif",
+    "2018-Chevrolet-Camaro-ZL1-de loi derriere.avif",
+    "2018-Chevrolet-Camaro-ZL1-le capos.avif",
+    "2018-Chevrolet-Camaro-ZL1-fare arriere.avif",
+    "2018-Chevrolet-Camaro-ZL1-le fare avent.avif",
+    "2018-Chevrolet-Camaro-ZL1-pune arriere.avif",
+    "2018-Chevrolet-Camaro-ZL1-le logo ZL1.avif",
+    "2018-Chevrolet-Camaro-ZL1-pune avent.avif",
+    "2018-Chevrolet-Camaro-ZL1-le volent.avif",
+    "2018-Chevrolet-Camaro-ZL1-derrire le volent.avif",
+    "2018-Chevrolet-Camaro-ZL1-frin a main.avif",
+    "2018-Chevrolet-Camaro-ZL1-siege.avif",
+    "2018-Chevrolet-Camaro-ZL1-sous le capos.avif"
+  ],
+  description: `
+    <p><strong>Garantie :</strong> 1 ans</p>
+    <p><strong>catégori :</strong> Sportive & légère</p>
+    <p><strong>Livraison :</strong>Partous a Abidjan</p>
+    <p><strong>Caractéristiques :</strong> 321cc, tableau numérique, phare LED</p>
+    <p><strong>TYPE DE VÉHICULE :</strong> moteur avant <br>propulsion arrière <br>4 passagers <br>coupé 2 portes</p>
+    <p><strong>TYPE DE MOTEUR :</strong> V-8 16 soupapes suralimenté et refroidi par air <br>bloc et culasses en aluminium <br>injection directe de carburant</p>
+    <p><strong>Puissance :</strong> 650 ch à 6400 tr/min</p>
+    <p><strong>TRANSMISSION :</strong> Automatique à 10 vitesses</p>
+    <p><strong>CHÂSSIS :</strong> Suspension (AV/AR) : jambes de force/multibras <br>
+    Freins (AV/AR) : disque ventilé de 15,4 po/disque ventilé de 14,4 po 
+<br>Pneus : Goodyear Eagle F1 SuperCar 3R
+<br>AV : 305/30R-19 (98Y) TPC, AR : 325/30R-19 (101Y) TPC</p>
+    <p><strong>RÉSULTATS DES TESTS C/D :</strong> Déroulement, 1 pi : 0,3 s
+<br>60 mi/h : 3,4 s
+<br>100 mi/h : 7,4 s
+<br>150 mi/h : 19,2 s
+<br>Démarrage roulant, 5 à 60 mi/h : 3,7 s
+<br>Vitesse maximale, 30 à 50 mi/h : 1,8 s
+<br>Vitesse maximale, 50 à 70 mi/h : 2,1 s
+<br>¼ de mile : 11,5 s à 124 mi/h
+<br>Vitesse maximale (selon le fabricant) : 190 mi/h
+<br>Freinage, 70 à 0 mi/h : 137 pi
+<br>Freinage, 100 à 0 mi/h : 268 pi
+<br>Tenue de route <br>piste de dérapage de 300 pi de diamètre : 1,17 g</p>
+<p><strong>C/D
+<br>ÉCONOMIE DE CARBURANT :</strong> Observée : 14 mpg</p>
+<p><strong>ÉCONOMIE DE CARBURANT EPA :</strong> Combiné/ville/autoroute : 16/13/21 mpg</p>
+  `
+},
+
+
+"audi Q5": {
+    nom: "audi Q5 line Quattro-2023",
+    prix: "2,900,000",
+    images: [
+        "audi blanc deventure.jpg",
+        "audi blanc portie",
+        "audi blanc portiere plus cofre.jpg",
+        "audi blanc le dos.jpg",
+        "audi blanc volen pret.jpg",
+        "audi blanc volen.jpg",
+        "audi blanc siege.jpg"
+    ],
+description: `
+        <p><strong>Garantie :</strong> 1 an</p>
+        <p><strong>Service après-vente :</strong> Jusqu'à 90 jours</p>
+        <p><strong>Support :</strong> En ligne 24h/24</p>
+        <p><strong>Livraison :</strong> partout Abidjan, avec La Poste CI</p>
+        <p><strong>Categorie :</strong> Luxe</p>
+        <p><strong>Qualité :</strong> puissance et élégance réunis dans un seul SUV.</p>
+            <p><strong>FULL OPTION :</strong> Boîte automatique - Essence - 4 cylindres turbo 
+<br>Démarrage Start & Stop 
+<br>Intérieur cuir premium
+<br>Caméra de recul + Apple CarPlay
+<br>Coffre électrique & Toit panoramique</p>
+`
+},
+  };
+
+  const params = new URLSearchParams(window.location.search);
+  const id = params.get("id");
+  const produit = produits[id];
+
+  if (!produit) {
+    document.body.innerHTML = "<h1 style='color:red'>Produit introuvable</h1>";
+    throw new Error("Produit introuvable");
+  }
+
+  document.querySelector("h1").innerText = produit.nom;
+  document.querySelector(".encadrement-prix").innerText = produit.prix;
+  document.querySelector(".info").innerHTML = produit.description;
+
+  const imageElement = document.getElementById("produitImage");
+  const thumbnails = document.querySelector(".thumbnails");
+  let index = 0;
+  let zoomed = false;
+
+  function afficherImage(i, event = null) {
+    index = i;
+    imageElement.classList.add("fade-out");
+    setTimeout(() => {
+      imageElement.src = produit.images[index];
+      imageElement.classList.remove("fade-out");
+      updateActiveThumbnail();
+    }, 200);
+  }
+
+  function changerImage(direction, event) {
+    index = (index + direction + produit.images.length) % produit.images.length;
+    afficherImage(index, event);
+  }
+
+  function updateActiveThumbnail() {
+    document.querySelectorAll(".thumbnails img").forEach((thumb, i) => {
+      thumb.classList.toggle("active", i === index);
+    });
+  }
+
+  // Charger la première image
+  imageElement.src = produit.images[0];
+
+  // Générer les miniatures
+  thumbnails.innerHTML = "";
+  produit.images.forEach((img, i) => {
+    const thumb = document.createElement("img");
+    thumb.src = img;
+    thumb.onclick = () => afficherImage(i);
+    thumbnails.appendChild(thumb);
+  });
+
+  const container = document.querySelector(".image-section");
+
+  container.addEventListener("dblclick", function (e) {
+    zoomed = true;
+    const rect = container.getBoundingClientRect();
+    const x = ((e.clientX - rect.left) / rect.width) * 100;
+    const y = ((e.clientY - rect.top) / rect.height) * 100;
+    imageElement.style.transformOrigin = `${x}% ${y}%`;
+    imageElement.style.transform = "scale(2)";
+  });
+
+  container.addEventListener("click", function () {
+    if (zoomed) {
+      imageElement.style.transform = "scale(1)";
+      zoomed = false;
+    }
+  });
+</script>
+
+
+
+
+
+
+
+
+
+
+
+<!-- Connexion au fichier JS 
+<script src="produit.js"></script>      -->
+
+
+
+
+<script>
+  (function chargerProduitsDepuisSheet() {
+    const idURL = new URLSearchParams(window.location.search).get("id");
+    if (!idURL) return;
+
+    fetch("https://script.google.com/macros/s/AKfycbzKljgmgmo9-PsgBQaItxfG8gN6KB6iQ6o_ajHv7FAUHUNJ0SHkP2P8aoX3ESqEX3cS/exec")
+      .then(r => r.json())
+      .then(produits => {
+        const prod = produits.find(p => p.id === idURL);
+        if (!prod) return;
+
+        if (!document.querySelector(".details-section h1").innerText.trim()) {
+          document.querySelector("h1").innerText = prod.nom;
+          document.querySelector(".encadrement-prix").innerText = prod.prix;
+          document.querySelector(".info").innerHTML = prod.description;
+
+          // Corriger ici : convertir la chaîne en tableau
+          const images = prod.images.split(",").map(img => img.trim());
+
+          const image = document.getElementById("produitImage");
+          const thumbnails = document.querySelector(".thumbnails");
+
+          image.src = images[0];
+          thumbnails.innerHTML = "";
+          images.forEach(img => {
+            const thumb = document.createElement("img");
+            thumb.src = img;
+            thumb.onclick = () => {
+              image.src = img;
+            };
+            thumbnails.appendChild(thumb);
+          });
+        }
+      })
+      .catch(err => {
+        console.warn("Erreur connexion Google Sheets :", err);
+      });
+  })();
+</script>
+
+
+</body>
+</html>

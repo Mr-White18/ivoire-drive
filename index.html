@@ -1,0 +1,345 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ivoire Drive.ci</title>
+   <link rel="stylesheet" href="styles.css">
+   <!-- À placer dans la balise <head> -->
+<!--<script type="module" src="https://unpkg.com/ionicons@5.4.0/dist/ionicons/ionicons.esm.js"></script>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+   -->
+<!-- Ionicons -->
+<script type="module" src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"></script>
+<script nomodule src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"></script>
+
+<!-- Police pour signature -->
+<link href="https://fonts.googleapis.com/css2?family=Great+Vibes&display=swap" rel="stylesheet">
+
+
+
+</head>
+<body>
+    <div class="récipient">
+        <nav>
+            <img src="logo ivoir drive (1).png" class="logo" alt="">
+            <ul class="menu">
+    <li><a href="acceuil.html">Acceuil</a></li>
+    <li><a href="a-propos/a-propos.html">Apropos</a></li>
+
+    <li class="deroulant">
+        <a href="#">Service</a>
+        <ul class="sous-menu">
+            <li><a href="service/location.html">Location</a></li>
+            <li><a href="service/achat.html">Achat</a></li>
+            <li><a href="service/vente.html">Vente</a></li>
+        </ul>
+    </li>
+
+    <li><a href="contact/contact.html">Contact</a></li>
+    <li><a href="patenaria/patenaria.html">Patenaria</a></li>
+</ul>
+
+
+            <div class="menu-toggle" id="menu-toggle">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
+
+            <p class="achat" onclick="maFonction()" style="cursor: pointer;  padding: 10px; border-radius: 5px; display: inline-block;">🛒</p>
+            <button id="userButton" style="display:none; top: 9px;" onclick="toggleSidebar()">User</button>
+
+<!-- Zone privée (sidebar) 
+            <div id="sidebar" style="display:none; position: fixed; top: 0; left: 0; width: 300px; height: 100%; background: black; color: #fff; padding: 20px;">
+                <h3>Bienvenue à toi</h3>
+                <p id="userInfo"></p>
+                <p>🧾 Mes command</p>
+                <p>💳 Paiement</p>
+                <button onclick="deconnexion()">Déconnexion</button>
+            </div>  -->
+
+            <div id="sidebar" style="display:none; position: fixed; top: 0; left: 0; width: 300px; height: 100%; background: black; color: #fff; padding: 20px;">
+    <h3>Bienvenue à toi</h3>
+    <p id="userInfo"></p>
+
+    <a href="mes-commandes/mes-commandes.html" class="sidebar-link">🧾 Mes commandes</a>
+    <a href="paiement.html" class="sidebar-link">💳 Paiement</a>
+    <a href="centre-de-messages.html" class="sidebar-link">💬 Centre de messages</a>
+    <a href="mes-pieces.html" class="sidebar-link">🪪 Mes pièce</a>
+    <a href="Liste-de-souhait.html" class="sidebar-link">♡ Liste de souhait</a>
+    
+    <button onclick="deconnexion()">Déconnexion</button>
+            </div>
+
+        </nav>
+        <div class="site-container">
+            <p>Bienvenue sure</p>
+            <h1>Ivoire Drive.ci</h1>
+            <h3>Votre partenaire fiable pour l'achat et la location de véhicules en Côte d'Ivoire</h3>
+
+            <div class="row">
+                <a href="#" class="btn-dore" onclick="ouvrirLogin()">connexion</a>
+                <a href="javascript:void(0)" class="btn-dore" onclick="ouvrirFormulaire()">inscription <span>&#x27f6</span></a>
+                <span>
+                    Rejoignez Ivoire Drive dès maintenant — connectez-vous ou <br>inscrivez-vous pour profiter de nos services exclusifs !
+                </span>
+                
+            </div>
+            <!-- Formulaire d'inscription en pop-up -->
+                    <div id="popupForm" class="modal">
+                        <div class="modal-content">
+                            <!-- Corrigé -->
+                             <!-- Pour fermer l'inscription -->
+                            <span class="close" onclick="fermerFormulaireInscription()">&times;</span>
+                            <h2>Inscription VIP</h2>
+                            <form onsubmit="envoyerFormulaire(event)" id="formulaire">
+                                <label for="email">Adresse Email</label><br>
+                                <input type="email" id="email" name="email" required><br><br>
+
+                                <label for="password">Mot de passe</label><br>
+                                <input type="password" id="password" name="password" required autocomplete="off" inputmode="text" pattern=".*"><br><br>
+
+                                <button type="submit">Valider</button>
+                            </form>
+                        </div>
+                    </div>
+                    <!-- Formulaire de connexion en pop-up -->
+<div id="popupLogin" class="modal" style="display:none;">
+  <div class="modal-content">
+    <!-- Pour fermer la connexion -->
+    <span class="close" onclick="fermerFormulaire('popupLogin')">&times;</span>
+    <h2>Connexion VIP</h2>
+    <form id="loginForm" onsubmit="return envoyerConnexion(event)">
+      <label for="loginEmail">Adresse Email</label><br>
+      <input type="email" id="loginEmail" name="email" required><br><br>
+
+      <label for="loginPassword">Mot de passe</label><br>
+      <input type="password" id="loginPassword" name="password" required><br><br>
+
+      <button type="submit">Se connecter</button>
+    </form>
+  </div>
+</div>
+
+        </div>
+
+      <!--  <div class="icon">
+                    <a href="#"><ion-icon name="logo-facebook"></ion-icon></a>
+                    <a href="#"><ion-icon name="logo-twitter"></ion-icon></a>
+                    <a href="#"><ion-icon name="logo-tiktok"></ion-icon></a> 
+        </div>-->
+    </div>
+
+    <!--<script src="https://unpkg.com/ionicons@5.4.0/dist/ionicons.js"></script>-->
+
+    <script>
+  // 👉 Afficher/Masquer les formulaires
+  function ouvrirFormulaire() {
+    document.getElementById("popupForm").style.display = "block";
+  }
+
+  function fermerFormulaireInscription() {
+    document.getElementById("popupForm").style.display = "none";
+  }
+
+  function ouvrirLogin() {
+    document.getElementById('popupLogin').style.display = 'block';
+  }
+
+  function fermerFormulaire(id) {
+    document.getElementById(id).style.display = 'none';
+  }
+
+  window.onclick = function(event) {
+    const modal = document.getElementById("popupForm");
+    if (event.target === modal) {
+      modal.style.display = "none";
+    }
+  };
+
+  // ✅ Envoi du formulaire d’inscription
+  function envoyerFormulaire(event) {
+    event.preventDefault();
+
+    const email = document.getElementById("email").value.trim();
+    const password = document.getElementById("password").value.trim();
+
+    const formData = new FormData();
+    formData.append("email", email);
+    formData.append("password", password);
+
+    fetch("https://script.google.com/macros/s/AKfycbwrUeY0mk5q3_Q-U1FW7syt5Ig0dvgFu0Do0Ol9PUEhSrASIbMhWxby_Ujskt3I1hmz3g/exec", {
+      method: "POST",
+      body: formData
+    })
+    .then(response => response.text())
+    .then(result => {
+      if (result === "user_exists") {
+        alert("Cet utilisateur est déjà inscrit. Veuillez vous connecter.");
+        fermerFormulaireInscription();
+      } else {
+        alert("Inscription enregistrée !");
+        document.getElementById("formulaire").reset();
+        fermerFormulaireInscription();
+
+        const user = { email, password };
+        sessionStorage.setItem("user", JSON.stringify(user));
+        afficherInterfaceUtilisateur(user);
+      }
+    })
+    .catch(error => {
+      console.error("Erreur :", error);
+      alert("Erreur lors de l'inscription.");
+    });
+  }
+
+  // ✅ Connexion utilisateur
+ async function envoyerConnexion(event) {
+  event.preventDefault();
+  const email = document.getElementById('loginEmail').value.trim().toLowerCase();
+  const password = document.getElementById('loginPassword').value.trim();
+
+  console.log("Connexion tentée :", email, password);
+
+  try {
+    const response = await fetch('https://script.google.com/macros/s/AKfycbwrUeY0mk5q3_Q-U1FW7syt5Ig0dvgFu0Do0Ol9PUEhSrASIbMhWxby_Ujskt3I1hmz3g/exec?action=getUsers');
+    const data = await response.json();
+    console.log("Utilisateurs récupérés :", data);
+    data.forEach((u, i) => {
+    console.log(`Utilisateur ${i} : email="${u.email}" / password="${u.password}"`);
+    });
+
+
+    const user = data.find(u =>
+    u.email?.toString().trim().toLowerCase() === email.toLowerCase().trim() &&
+    u.password?.toString().trim() === password.trim()
+   );
+
+
+
+    if (user) {
+      console.log("Utilisateur trouvé:", user);
+      sessionStorage.setItem('user', JSON.stringify(user));
+      alert(`Bienvenue ${user.email} !`);
+      fermerFormulaire('popupLogin');
+      afficherInterfaceUtilisateur(user);
+    } else {
+      console.log("Utilisateur non trouvé ou mauvais mot de passe");
+      alert("Email ou mot de passe incorrect. Veuillez vous inscrire.");
+    }
+  } catch (error) {
+    console.error("Erreur dans la connexion :", error);
+    alert("Erreur lors de la connexion. Veuillez réessayer.");
+  }
+}
+
+
+
+
+  // ✅ Affichage utilisateur connecté
+  function afficherInterfaceUtilisateur(user) {
+    const userBtn = document.getElementById('userButton');
+    userBtn.textContent = user.email;
+    userBtn.style.display = 'block';
+  }
+
+  function toggleSidebar() {
+    const sidebar = document.getElementById('sidebar');
+    const user = JSON.parse(sessionStorage.getItem('user'));
+
+    if (sidebar.style.display === 'block') {
+      sidebar.style.display = 'none';
+    } else {
+      sidebar.style.display = 'block';
+      document.getElementById('userInfo').textContent = `Email : ${user.email}`;
+    }
+  }
+
+  function deconnexion() {
+    sessionStorage.removeItem('user');
+    document.getElementById('userButton').style.display = 'none';
+    document.getElementById('sidebar').style.display = 'none';
+  }
+
+  // ✅ Chargement au démarrage
+  window.onload = function () {
+    const user = JSON.parse(sessionStorage.getItem('user'));
+    if (user) {
+      afficherInterfaceUtilisateur(user);
+    }
+  };
+</script>
+
+
+
+
+<script>
+  const toggle = document.getElementById("menu-toggle");
+  const navLinks = document.querySelector("nav ul");
+
+  toggle.addEventListener("click", () => {
+    navLinks.classList.toggle("active");
+  });
+</script>
+
+
+
+
+
+
+<footer style="background-color: #000; color: #fff; padding: 50px 20px; font-family: 'Poppins', sans-serif;">
+  <div style="display: flex; flex-wrap: wrap; justify-content: space-between; max-width: 1200px; margin: auto;">
+    <div style="flex: 1; min-width: 250px; margin-bottom: 20px;">
+      <h2 style="font-size: 24px; margin-bottom: 15px;">Ivoire Drive.ci</h2>
+      <p style="line-height: 1.6;">
+        Ivoire Drive.ci est votre partenaire premium pour l'achat, la vente et la location de véhicules et motos de luxe en Côte d'Ivoire. Profitez d'une expérience unique, sécurisée et rapide.
+      </p>
+    </div>
+
+    <div style="flex: 1; min-width: 200px; margin-bottom: 20px;">
+      <h3 style="font-size: 18px; margin-bottom: 10px;">Nos services</h3>
+      <ul style="list-style: none; padding: 0; line-height: 2;">
+        <li>🚗 Vente de voitures</li>
+        <li>🏍️ Vente de motos</li>
+        <li>📦 Achat en ligne</li>
+        <li>🔄 Location de véhicules</li>
+      </ul>
+    </div>
+
+    <div style="flex: 1; min-width: 200px; margin-bottom: 20px;">
+      <h3 style="font-size: 18px; margin-bottom: 10px;">Contact</h3>
+      <p>📞 +225 07 07293637</p>
+      <p>📧 contact@ivoiredrive.ci</p>
+      <p>📍 Abidjan, Côte d'Ivoire</p>
+
+      <!-- Icônes sociales -->
+      <div style="margin-top: 10px;">
+        <a href="https://facebook.com/ton_utilisateur" target="_blank" style="margin-right: 10px; text-decoration: none;">
+          <ion-icon name="logo-facebook" style="font-size: 22px; color: white;" onmouseover="this.style.color='gold'" onmouseout="this.style.color='white'"></ion-icon>
+        </a>
+        <a href="https://twitter.com/ton_utilisateur" target="_blank" style="margin-right: 10px; text-decoration: none;">
+          <ion-icon name="logo-twitter" style="font-size: 22px; color: white;" onmouseover="this.style.color='gold'" onmouseout="this.style.color='white'"></ion-icon>
+        </a>
+        <a href="https://www.tiktok.com/@ton_utilisateur" target="_blank" style="text-decoration: none;">
+          <ion-icon name="logo-tiktok" style="font-size: 22px; color: white;" onmouseover="this.style.color='gold'" onmouseout="this.style.color='white'"></ion-icon>
+        </a>
+      </div>
+    </div>
+  </div>
+
+  <!-- Mention centrale -->
+  <div style="text-align: center; border-top: 1px solid #fff; margin-top: 30px; padding-top: 15px; font-size: 14px;">
+    © 2025 Ivoire Drive.ci. Tous droits réservés.
+  </div>
+
+  <!-- Signature à droite -->
+  <div style="text-align: right; font-family: 'Great Vibes', cursive; font-size: 17px; color: rgb(241, 232, 221); margin-top: 5px;">
+    © Mr White
+  </div>
+</footer>
+
+
+
+</body>
+</html>
