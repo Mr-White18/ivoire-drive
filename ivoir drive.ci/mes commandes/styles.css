@@ -1,0 +1,105 @@
+*, *::before{
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    outline: none;
+    font-family: 'Tw Cen MT', sans-serif;
+}
+
+
+
+
+.récipient{
+    position: relative;
+    height: 100vh;
+    width: 100%;
+    background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.1)), url(fond\ Ivoir\ drive.ci.png);
+    background-size: cover;
+    background-position: center;
+    padding: 0 8%;
+}
+
+
+
+
+nav{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+    padding: 5px 0;
+}
+
+nav .logo{
+    width: 180px;
+    cursor: pointer;
+}
+
+nav .récipient{
+    width: 40px;
+    cursor: pointer;
+}
+
+nav ul{
+    display: flex;
+    justify-content: flex-end;
+    flex: 1;
+    padding-right: 40px;
+    text-align: right;
+    list-style-type: none;
+}
+
+nav .achat {
+    font-size: 30px;
+}
+
+ul li{
+    margin-right: 10px;
+}
+
+ul li a{
+    position: relative;
+    padding: 10px 20px;
+    color: #fff;
+    font-size: 16px;
+}
+
+ul li a::after{
+    content: '';
+    background: #ffa400;
+    position: absolute;
+    bottom: 0;
+    right: 0;
+    width: 0;
+    height: 3px;
+    transform: translate(-50%, -5px);
+    transition: 0.3s;
+}
+
+ul li a:hover::after{
+    width: 38%;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+.sidebar-link {
+    display: block;
+    margin: 10px 0;
+    color: white;
+    text-decoration: none;
+    transition: color 0.3s;
+}
+
+.sidebar-link:hover {
+    color: gold;
+}

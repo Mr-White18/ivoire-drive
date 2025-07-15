@@ -1,0 +1,812 @@
+*, *::before{
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    outline: none;
+    font-family: 'Tw Cen MT', sans-serif;
+}
+
+.récipient{
+    position: relative;
+    height: 300vh;
+    width: 100%;
+    background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.1)), url(fond\ Contact.jpg);
+    background-size: cover;
+    background-position: center;
+    padding: 0 8%;
+}
+
+nav{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+    padding: 5px 0;
+}
+
+nav .logo{
+    width: 180px;
+    cursor: pointer;
+}
+
+nav .récipient{
+    width: 40px;
+    cursor: pointer;
+}
+
+nav ul{
+    display: flex;
+    justify-content: flex-end;
+    flex: 1;
+    padding-right: 40px;
+    text-align: right;
+    list-style-type: none;
+}
+
+nav .achat {
+    font-size: 30px;
+}
+
+ul li{
+    margin-right: 10px;
+}
+
+ul li a{
+    position: relative;
+    padding: 10px 20px;
+    color: #fff;
+    font-size: 16px;
+}
+
+ul li a:not(.voiture):not(.moto)::after {
+    content: '';
+    background: #ffa400;
+    position: absolute;
+    bottom: 0;
+    right: 0;
+    width: 0;
+    height: 3px;
+    transform: translate(-50%, -5px);
+    transition: 0.3s;
+}
+
+ul li a:not(.voiture):not(.moto):hover::after{
+    width: 38%;
+}
+
+
+.voiture {
+  display: inline-block;
+  padding: 10px 30px 10px 20px;
+  background:rgba(255, 255, 255, 0.05); /* Très transparent */
+  color: #333;
+  font-weight: 600;
+  font-size: 12px;
+  text-decoration: none;
+  border-radius: 30px;
+  border: 2px solid rgba(49, 48, 48, 0.53);
+  box-shadow: 0 4px 6px rgba(24, 23, 23, 0.72);
+  position: relative;
+  transition: all 0.3s ease;
+  font-family: 'Arial', sans-serif;
+  letter-spacing: 1px;
+}
+
+.voiture::after {
+  content: '>';
+  position: absolute;
+  right: 15px;
+  top: 50%;
+  transform: translateY(-50%);
+  color: #333;
+  font-weight: bold;
+  font-size: 14px;
+}
+
+.voiture:hover {
+  background: #d6d6d6;
+  box-shadow: 0 5px 8px rgba(0,0,0,0.3);
+}
+
+
+
+
+
+
+
+
+
+/*pour le styles de ma signature*/
+.sidebar-link {
+    display: block;
+    margin: 10px 0;
+    color: white;
+    text-decoration: none;
+    transition: color 0.3s;
+}
+
+.sidebar-link:hover {
+    color: gold;
+}
+
+
+
+
+
+
+/* Menu principal */
+.menu {
+  list-style: none;
+  display: flex;
+  gap: 20px;
+  padding: 0;
+  margin: 0;
+}
+
+/* Style des liens principaux */
+.menu > li > a {
+  text-decoration: none;
+  padding: 10px 25px;
+  border: 2px solid white;                 /* Contour blanc */
+  border-radius: 30px;                     /* Très arrondi */
+  background-color: transparent;           /* Fond transparent */
+  color: white;                            /* Texte blanc */
+  transition: 0.3s ease;
+  display: block;
+}
+
+/* Hover des liens */
+.menu > li > a:hover {
+  background-color: white;
+  color: black;
+}
+
+/* Menu déroulant */
+.deroulant {
+  position: relative;
+}
+
+/* Sous-menu */
+.sous-menu {
+  display: none;
+  position: absolute;
+  top: 110%;
+  left: 0;
+  background-color: rgba(255, 255, 255, 0.05); /* Très transparent */
+  border: 2px solid white;
+  border-radius: 25px;
+  padding: 10px 0;
+  min-width: 180px;
+  z-index: 999;
+  backdrop-filter: blur(4px); /* effet de verre */
+}
+
+/* Liens du sous-menu */
+.sous-menu li a {
+  color: white;
+  padding: 10px 20px;
+  text-decoration: none;
+  display: block;
+  border-radius: 20px;
+  transition: 0.3s;
+}
+
+.sous-menu li a:hover {
+  background-color: white;
+  color: black;
+}
+
+/* Affiche le sous-menu au survol */
+.deroulant:hover .sous-menu {
+  display: block;
+}
+
+
+
+
+/* Hamburger menu bouton */
+.menu-toggle {
+  display: none;
+  flex-direction: column;
+  justify-content: space-between;
+  width: 30px;
+  height: 22px;
+  cursor: pointer;
+  z-index: 1002;
+}
+
+.menu-toggle span {
+  height: 4px;
+  background: gold;
+  border-radius: 2px;
+  transition: 0.3s;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  .menu-toggle {
+    display: flex;
+  }
+
+  nav ul {
+    position: absolute;
+    top: 70px;
+    right: 0;
+    width: 100%;
+    background-color: rgba(0, 0, 0, 0.95);
+    flex-direction: column;
+    align-items: center;
+    display: none;
+  }
+
+  nav ul.active {
+    display: flex;
+  }
+
+  nav ul li {
+    margin: 15px 0;
+  }
+}
+
+
+
+
+/* Bouton utilisateur en haut à droite */
+#userButton {
+  display: none;
+  position: fixed;
+  top: 20px;
+  right: 40px;
+  background-color: rgba(255, 255, 255, 0.05); /* Très transparent */;
+  color: #fff;
+  border: 2px solid #fff;
+  border-radius: 30px;
+  padding: 9px 25px;
+  font-weight: bold;
+  font-size: 11px;
+  cursor: pointer;
+  box-shadow: 0 0 10px #fff;
+  transition: all 0.3s ease-in-out;
+  z-index: 1001;
+}
+
+#userButton:hover {
+  background-color: #fff;
+  color: black;
+  transform: scale(1.05);
+  box-shadow: 0 0 20px #fff;
+}
+
+
+
+/* Hamburger menu bouton */
+.menu-toggle {
+  display: none;
+  flex-direction: column;
+  justify-content: space-between;
+  width: 30px;
+  height: 22px;
+  cursor: pointer;
+  z-index: 1002;
+}
+
+.menu-toggle span {
+  height: 4px;
+  background: gold;
+  border-radius: 2px;
+  transition: 0.3s;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  .menu-toggle {
+    display: flex;
+  }
+
+  nav ul {
+    position: absolute;
+    top: 70px;
+    right: 0;
+    width: 100%;
+    background-color: rgba(0, 0, 0, 0.95);
+    flex-direction: column;
+    align-items: center;
+    display: none;
+  }
+
+  nav ul.active {
+    display: flex;
+  }
+
+  nav ul li {
+    margin: 15px 0;
+  }
+}
+
+
+
+
+/* Sidebar (zone privée) */
+#sidebar {
+  display: none;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 320px;
+  height: 100%;
+  background: linear-gradient(to bottom right, #000000, #1a1a1a);
+  color: gold;
+  padding: 30px 20px;
+  box-shadow: 5px 0 15px rgba(255, 215, 0, 0.3);
+  font-family: 'Segoe UI', sans-serif;
+  z-index: 1000;
+}
+
+#sidebar h3 {
+  margin-top: 0;
+  font-size: 24px;
+  border-bottom: 2px solid gold;
+  padding-bottom: 10px;
+}
+
+#sidebar p {
+  margin: 20px 0;
+  font-size: 16px;
+}
+
+#sidebar button {
+  background-color: #fff;
+  color: black;
+  border: none;
+  padding: 10px 20px;
+  font-weight: bold;
+  border-radius: 25px;
+  cursor: pointer;
+  transition: 0.3s;
+}
+
+#sidebar button:hover {
+  background-color: #ffd700;
+  transform: scale(1.05);
+}
+
+
+.sidebar-link {
+    display: block;
+    margin: 10px 0;
+    color: white;
+    text-decoration: none;
+    transition: color 0.3s;
+}
+
+.sidebar-link:hover {
+    color: gold;
+}
+
+
+
+.ctr h3{
+    
+    position: absolute;
+    right: 130px;
+    top:  220px;
+    color: #555;
+    font-size: 35px;
+    font-style: oblique;
+}
+
+
+/* Menu déroulant */
+.deroulant-vtr {
+  position: absolute;
+}
+
+
+/* Sous-menu */
+.sous-menu-vtr {
+  display: none;
+  position: absolute;
+  top: 110%;
+  left: 0;
+  background-color: rgba(255, 255, 255, 0.05); /* Très transparent */
+  border: 2px solid white;
+  border-radius: 25px;
+  padding: 10px 0;
+  min-width: 180px;
+  z-index: 999;
+  backdrop-filter: blur(4px); /* effet de verre */
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  max-height: 250px;         /* Hauteur maximale visible */
+  overflow-y: auto;          /* Active la barre de défilement verticale */
+  scrollbar-width: thin;     /* Scroll fin sur Firefox */
+  scrollbar-color: #555 transparent; /* Couleur personnalisée pour Firefox */
+}
+
+/* Liens du sous-menu */
+.sous-menu-vtr li a {
+  color: white;
+  padding: 10px 20px;
+  text-decoration: none;
+  display: block;
+  border-radius: 20px;
+  transition: 0.3s;
+}
+
+.sous-menu-vtr li a:hover {
+  background-color: white;
+  color: black;
+}
+
+/* Affiche le sous-menu au survol */
+.deroulant-vtr:hover .sous-menu-vtr {
+  display: block;
+}
+
+
+
+.sous-menu-vtr::-webkit-scrollbar {
+  width: 6px;
+}
+
+.sous-menu-vtr::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+.sous-menu-vtr::-webkit-scrollbar-thumb {
+  background-color: gold;
+  border-radius: 10px;
+}
+
+
+
+
+/*.deroulant-vtr a {
+  position: relative;
+    padding: 10px 20px;
+    color: #fff;
+    font-size: 16px;
+}*/
+
+
+
+/* Menu déroulant */
+.deroulant-mt {
+  position: absolute;
+}
+
+
+/* Sous-menu */
+.sous-menu-mt {
+  display: none;
+  position: absolute;
+  top: 110%;
+  left: 0;
+  background-color: rgba(255, 255, 255, 0.05); /* Très transparent */
+  border: 2px solid white;
+  border-radius: 25px;
+  padding: 10px 0;
+  min-width: 180px;
+  z-index: 999;
+  backdrop-filter: blur(4px); /* effet de verre */
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  max-height: 250px;         /* Hauteur maximale visible */
+  overflow-y: auto;          /* Active la barre de défilement verticale */
+  scrollbar-width: thin;     /* Scroll fin sur Firefox */
+  scrollbar-color: #555 transparent; /* Couleur personnalisée pour Firefox */
+}
+
+/* Liens du sous-menu */
+.sous-menu-mt li a {
+  color: white;
+  padding: 10px 20px;
+  text-decoration: none;
+  display: block;
+  border-radius: 20px;
+  transition: 0.3s;
+}
+
+.sous-menu-mt li a:hover {
+  background-color: white;
+  color: black;
+}
+
+/* Affiche le sous-menu au survol */
+.deroulant-mt:hover .sous-menu-mt {
+  display: block;
+}
+
+
+
+.moto {
+  display: inline-block;
+  padding: 10px 30px 10px 20px;
+  background:rgba(255, 255, 255, 0.05); /* Très transparent */
+  color: #333;
+  font-weight: 600;
+  font-size: 12px;
+  text-decoration: none;
+  border-radius: 30px;
+  border: 2px solid rgba(49, 48, 48, 0.53);
+  box-shadow: 0 4px 6px rgba(24, 23, 23, 0.72);
+  position: relative;
+  transition: all 0.3s ease;
+  font-family: 'Arial', sans-serif;
+  letter-spacing: 1px;
+}
+
+.moto::after {
+  content: '>';
+  position: absolute;
+  right: 15px;
+  top: 50%;
+  transform: translateY(-50%);
+  color: #333;
+  font-weight: bold;
+  font-size: 14px;
+}
+
+.moto:hover {
+  background: #d6d6d6;
+  box-shadow: 0 5px 8px rgba(0,0,0,0.3);
+}
+
+
+.sous-menu-mt::-webkit-scrollbar {
+  width: 6px;
+}
+
+.sous-menu-mt::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+.sous-menu-mt::-webkit-scrollbar-thumb {
+  background-color: gold;
+  border-radius: 10px;
+}
+
+
+.vent {
+  position: absolute;
+  top: -50px;
+  margin: 475px;
+  color: #333;
+}
+
+
+.para-bien {
+  position: absolute;
+  top: 50px;
+  margin: 130px;
+  color: #333;
+}
+
+
+
+.fenetre-produits {
+  position: absolute;
+  top: 750px;
+  left: 50%;
+  transform: translateX(-50%); /* Centre horizontalement même en absolute */
+  width: 90vw; /* Largeur relative à l'écran */
+  max-width: 1130px;
+  height: auto;
+  max-height: 80vh;
+  overflow-y: auto;
+  overflow-x: hidden;
+  background: rgba(0, 0, 0, 0.6);
+  border: 2px solid gold;
+  border-radius: 20px;
+  padding: 20px;
+  backdrop-filter: blur(5px);
+  box-shadow: 0 0 20px rgba(255, 215, 0, 0.5);
+}
+
+
+@media screen and (max-width: 600px) {
+  .fenetre-produits {
+    padding: 15px;
+    border-radius: 15px;
+  }
+}
+
+
+
+/* ⚠️ Correction ici : on passe en grille */
+.contenu-produits {
+  display: grid;
+  grid-template-columns: repeat(5, 1fr); /* 5 produits par ligne */
+  gap: 20px; /* espace entre les produits */
+}
+
+/* Style d’un produit */
+.carte-produit {
+  background-color: rgba(255, 255, 255, 0.05);
+  border: 1px solid white;
+  border-radius: 15px;
+  padding: 10px;
+  text-align: center;
+  color: white;
+  position: relative;
+
+}
+
+.carte-produit img {
+  width: 100%;
+  height: 120px;
+  object-fit: cover;
+  border-radius: 10px;
+}
+
+.carte-produit .prix {
+  color: gold;
+  font-weight: bold;
+}
+
+.carte-produit .qualite {
+  font-style: italic;
+  font-size: 14px;
+  color: #ccc;
+}
+
+
+.barre-recherche {
+  position: absolute;
+  top: 400px;
+  left: 130px;
+  display: flex;
+  align-items: center;
+  background: rgba(255, 255, 255, 0.08);
+  border: 1px solid gold;
+  border-radius: 30px;
+  padding: 5px 10px;
+  backdrop-filter: blur(5px);
+  z-index: 10000;
+}
+
+.barre-recherche input {
+  background: transparent;
+  border: none;
+  outline: none;
+  color: white;
+  padding: 8px;
+  width: 200px;
+  font-size: 14px;
+}
+
+.barre-recherche button {
+  background: none;
+  border: none;
+  cursor: pointer;
+  color: gold;
+  font-size: 20px;
+}
+
+/* ✅ Responsive mobile */
+@media screen and (max-width: 600px) {
+  .barre-recherche {
+    top: 70px;
+    right: 20px;
+    width: 80%;
+    max-width: 300px;
+  }
+
+  .barre-recherche input {
+    width: 100%;
+    font-size: 13px;
+  }
+}
+
+
+
+.btn-whatsapp {
+  display: inline-flex;
+  align-items: center;
+  gap: 5px;
+  background-color: #25D366;
+  color: white;
+  border: none;
+  padding: 5px 10px;
+  border-radius: 8px;
+  font-size: 14px;
+  margin-top: 10px;
+  text-decoration: none;
+  transition: background 0.3s;
+}
+
+.btn-whatsapp:hover {
+  background-color: #1ebe5d;
+}
+
+/* Bouton favori */
+.favori {
+  cursor: pointer;
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  color: black;
+  font-size: 20px;
+  transition: color 0.3s ease;
+}
+
+/* Couleur noire par défaut */
+.favori ion-icon {
+  color: black;
+}
+
+/* Couleur dorée après ajout aux favoris */
+.favori.ajoute ion-icon {
+  color: #ffa400;
+}
+
+/* Survol doré */
+.favori:hover ion-icon {
+  color: #ffd700;
+}
+
+
+
+
+.infos-ivoire-drive {
+  position: absolute;
+  top: 480px;
+  left: 0;
+  width: 100%;
+  display: flex;
+  justify-content: space-around;
+  flex-wrap: wrap;
+  background: rgba(0, 0, 0, 0.6);
+  padding: 30px 15px;
+  border-bottom: 2px solid gold;
+  z-index: 1000;
+  backdrop-filter: blur(4px);
+}
+
+.info-bloc {
+  background: rgba(20, 20, 20, 0.8);
+  border: 1.5px solid gold;
+  border-radius: 20px;
+  padding: 20px;
+  margin: 10px;
+  width: 200px;
+  text-align: center;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  box-shadow: 0 0 10px rgba(255, 215, 0, 0.2);
+}
+
+.info-bloc:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 0 15px rgba(255, 215, 0, 0.5);
+}
+
+.info-bloc h4 {
+  font-size: 16px;
+  font-weight: bold;
+  color: gold;
+  margin-bottom: 8px;
+}
+
+.info-bloc p {
+  font-size: 13px;
+  color: white;
+}
+
+
+
+.logistique { background: linear-gradient(to bottom, #111, #1a1a1a); }
+.garantie   { background: linear-gradient(to bottom, #111, #222); }
+.sav        { background: linear-gradient(to bottom, #111, #1e1e1e); }
+.support    { background: linear-gradient(to bottom, #111, #1b1b1b); }
+.vidange    { background: linear-gradient(to bottom, #111, #1c1c1c); }
+
+
+
+
+
+footer {
+  position: relative;
+  z-index: 1;
+}

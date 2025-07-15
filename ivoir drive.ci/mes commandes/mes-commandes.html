@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ivoire drive.ci</title>
+    <link rel="stylesheet" href="styles.css">
+    <script type="module" src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"></script>
+<script nomodule src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"></script>
+
+<!-- Police pour signature -->
+<link href="https://fonts.googleapis.com/css2?family=Great+Vibes&display=swap" rel="stylesheet">
+</head>
+<body>
+        <div class="récipient">
+        <nav>
+            <img src="logo ivoir drive (1).png" class="logo" alt="">
+            <ul>
+                <li><a href="#">Acceuil</a></li>
+                <li><a href="#">Apropos</a></li>
+                <li><a href="#">Service</a></li>
+                <li><a href="#">Contact</a></li>
+                <li><a href="#">Patenaria</a></li>
+            </ul>
+            <p class="achat" onclick="maFonction()" style="cursor: pointer;  padding: 10px; border-radius: 5px; display: inline-block;">🛒</p>
+            <button id="userButton" style="display:none; top: 9px;" onclick="toggleSidebar()">User</button>
+
+<!-- Zone privée (sidebar) 
+            <div id="sidebar" style="display:none; position: fixed; top: 0; left: 0; width: 300px; height: 100%; background: black; color: #fff; padding: 20px;">
+                <h3>Bienvenue à toi</h3>
+                <p id="userInfo"></p>
+                <p>🧾 Mes command</p>
+                <p>💳 Paiement</p>
+                <button onclick="deconnexion()">Déconnexion</button>
+            </div>  -->
+
+            <div id="sidebar" style="display:none; position: fixed; top: 0; left: 0; width: 300px; height: 100%; background: black; color: #fff; padding: 20px;">
+    <h3>Bienvenue à toi</h3>
+    <p id="userInfo"></p>
+
+    <a href="../mes-commandes/mes-commandes.html" class="sidebar-link">🧾 Mes commandes</a>
+    <a href="paiement.html" class="sidebar-link">💳 Paiement</a>
+    <a href="centre-de-messages.html" class="sidebar-link">💬 Centre de messages</a>
+    <a href="mes-pieces.html" class="sidebar-link">🪪 Mes pièce</a>
+    <a href="Liste-de-souhait.html" class="sidebar-link">♡ Liste de souhait</a>
+    
+    <button onclick="deconnexion()">Déconnexion</button>
+            </div>
+
+        </nav>
+</body>
+</html>
